@@ -25,7 +25,7 @@ def index(request):
             os.system("./run.sh")
             os.remove("usercode.cpp")
             #here
-            with open("test.txt", encoding = 'utf-8') as f:
+            with open("verdict.txt", encoding = 'utf-8') as f:
                 verdict = f.read() 
                 context["verdict"] = verdict
             os.chdir("..")
