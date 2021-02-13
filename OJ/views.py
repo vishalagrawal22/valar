@@ -17,12 +17,11 @@ def index(request):
             messages.error(request, 'file should be cpp')
         else:
             code_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
-            runner_path = os.path.join(settings.MEDIA_ROOT, "user-runner/")
-            os.remove(code_path)
-            time.sleep(1)
             fs = FileSystemStorage()
-            fs.save("user-runner/usercode.cpp", uploaded_file)
+            fs.save(code_path, uploaded_file)
             os.chdir(runner_path)
             os.system("./run.sh")
+            time.sleep(1)
+            os.remove(code_path)
     return render(request, "OJ/index.html")
 
