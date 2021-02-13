@@ -38,10 +38,14 @@ form {
   padding: 20px;
 }
 
-#green{
-  color: green;
+.green{
+  color: #32cd32;
 }
 
-#red{
-  color: red;
+.red{
+  color: #dc143c;
+}
+
+.black{
+  color: black;
 }

@@ -29,14 +29,11 @@ def index(request):
             with open("verdict.txt", encoding = 'utf-8') as f:
                 verdict = f.read() 
                 context["verdict"] = verdict
-                if (verdict == "Accepted")
-                {
+                print(verdict)
+                if (verdict == "Accepted\n"):
                     context["color"] = "green"
-                }
-                else
-                {
+                else:
                     context["color"] = "red"
-                }
             os.chdir("..")
     return render(request, "OJ/index.html", context)
 
