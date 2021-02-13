@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 import os
+import time
 
 def index(request):
     context = {}

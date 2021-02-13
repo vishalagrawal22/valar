@@ -18,5 +18,9 @@ if [ $j != $n ]
 then 
     echo "Wrong"
 fi 
-echo "Correct"
+
+if [ $j == $n ] 
+then  
+    echo "Correct"
+fi 
 #total runtime of 10 testcases = 1s
