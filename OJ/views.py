@@ -15,9 +15,10 @@ def index(request):
         if not uploaded_file.name.endswith(".cpp"):
             messages.error(request, 'file should be cpp')
         else:
-            pdf_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
+            code_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
             runner_path = os.path.join(settings.MEDIA_ROOT, "user-runner/")
-            os.remove(pdf_path)
+            os.remove(code_path)
+            time.sleep(1)
             fs = FileSystemStorage()
             fs.save("user-runner/usercode.cpp", uploaded_file)
             os.chdir(runner_path)
