@@ -14,11 +14,40 @@
     </head>
     <body>
         <div class="flex-container">
-            <h1 class="display-1">Hey there! You are using OJ</h1>
-            <div id="question-verdict">
-                <h1 class="display-3"> {{ verdict }} </h1>
+            <h1 class="display-1 textcntr">Hey there! You are using OJ</h1>
+            <div id="question">
+                <h1 id="problem-statement">Problem statement</h1>
+                <p>You are given an array of length N, and you will be asked to answer Q queries.
+                Each query will contain 2 values, L and R, and you have to output the sum of the elements between the Lth and Rth elements (inclusive) of the array.</p>
+                <h2 id="testcase-format-">testcase format:</h2>
+                <ul>
+                <li>first line contains an integer N, the number of elements in the array</li>
+                <li>next lines contains N integers, the elements in the array</li>
+                <li>third line contains an integer Q, the number of queries</li>
+                <li>each of the following Q lines contain 2 integers L and R, the boundaries of the query</li>
+                </ul>
+                <h2 id="constraints-">constraints:</h2>
+                <ul>
+                <li>N &lt;= 10^5</li>
+                <li>all elements individually &lt;= 10^4</li>
+                <li>Q &lt;= 10^5</li>
+                <li>L &lt;= N</li>
+                <li>R &gt;= L</li>
+                </ul>
+                <h2 id="sample-io-">sample IO:</h2>
+                <h3 id="input-">Input:</h3>
+                <p>5</p>
+                <p>1   14   2   67   100</p>
+                <p>3</p>
+                <p>2   2</p>
+                <p>2   5</p>
+                <p>1   4</p>
+                <h3 id="output-">Output:</h3>
+                <p>14
+                183
+                84</p>
             </div>
-            <section id="form-section" class="container-large">
+            <section id="form-section" class="container-large textcntr">
                 <form method = 'post' enctype="multipart/form-data">
                     {% csrf_token %}
                     <br>
@@ -46,6 +75,9 @@
                     </script>
                 </form>
             </section>
+            <div id="verdict textcntr">
+                <h1 id = "verdict_txt" class="display-5"> {{ verdict }} </h1>
+            </div>
         </div>
         
        

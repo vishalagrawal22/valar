@@ -1,4 +1,4 @@
-* {
+.textcntr{
   text-align: center;
 }
 #form-section {
@@ -15,20 +15,33 @@ form {
   width: 80vw;
 }
 
-#question-verdict {
-  height: 600px;
+#question {
+  height: 90vh;
   width: 80%;
   border: 2px solid black;
   margin: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-left: 20px;
 }
 
 .flex-container{
     display: flex;
-    height: 100vh;
+    height: 130vh;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+
+#verdict_txt{
+  padding: 20px;
+}
+
+#green{
+  color: green;
+}
+
+#red{
+  color: red;
 }

@@ -16,11 +16,11 @@ for((i = 1; i <= n; ++i)); do
 done
 if [ $j != $n ] 
 then 
-    echo "Wrong" > verdict.txt
+    echo "Wrong Answer" > verdict.txt
 fi 
 
 if [ $j == $n ] 
 then  
-    echo "Correct" > verdict.txt
+    echo "Accepted" > verdict.txt
 fi 
 #total runtime of 10 testcases = 1s

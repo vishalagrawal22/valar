@@ -8,7 +8,7 @@ import time
 
 def index(request):
     context = {}
-    context["verdict"] = "Problem Statement/ Verdict Goes here"
+    context["verdict"] = "Verdict will come here"
     if request.method == 'POST':
         try:
             uploaded_file = request.FILES['document']
