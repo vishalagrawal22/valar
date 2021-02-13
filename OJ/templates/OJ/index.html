@@ -2,63 +2,78 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Valar Online Judge</title>
+        <title>Valar Morghulis Online Judge</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="{% static 'CSS/OJ/custom.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <style>
-                .textcntr{
-                text-align: center;
-                }
-                #form-section {
-                display: flex;
-                justify-content: center;
-                }
+            .textcntr {
+            text-align: center;
+            }
+            #form-section {
+            display: flex;
+            justify-content: center;
+            }
 
-                form {
-                text-align: center;
-                border-radius: 5px;
-                padding-left: 20px;
-                padding-right: 20px;
-                display: inline-block;
-                width: 80vw;
-                }
+            form {
+            text-align: center;
+            border-radius: (5/16)rem;
+            padding-left: (20/16)rem;
+            padding-right: (20/16)rem;
+            display: inline-block;
+            width: 80vw;
+            }
 
-                #question {
-                height: 90vh;
-                width: 80%;
-                border: 2px solid black;
-                margin: 0;
+            #question {
+            width: 80%;
+            border: 2px solid black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 20px;
+            }
+
+            .flex-container{
                 display: flex;
-                justify-content: center;
                 flex-direction: column;
-                padding-left: 20px;
-                }
+                justify-content: space-between;
+                align-items: center;
+            }
 
-                .flex-container{
-                    display: flex;
-                    height: 130vh;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                }
+            #verdict_txt{
+            padding: (20/16)rem;
+            }
 
-                #verdict_txt{
-                padding: 20px;
-                }
+            .green{
+            color: #32cd32;
+            }
 
-                .green{
-                color: #32cd32;
-                }
+            .red{
+            color: #dc143c;
+            }
 
-                .red{
-                color: #dc143c;
-                }
+            .black{
+            color: black;
+            }
 
-                .black{
-                color: black;
-                }
+            @media(max-width:1600px){
+            .flex-container{
+                height: 130vh;
+            }
+            #question{
+                height: 90vh;
+            }
+            }
+            @media(max-width:1400px){
+            .flex-container{
+                height: 170vh;
+            }
+            #question{
+                height: 90vh;
+            }
+            }
         </style>
         <script src="https://kit.fontawesome.com/fe4ce24d39.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -67,7 +82,7 @@
     </head>
     <body>
         <div class="flex-container">
-            <h1 class="display-1 textcntr">Hey there! You are using OJ</h1>
+            <h1 class="display-1 textcntr">Welcome to Valar Morghulis</h1>
             <div id="question">
                 <h1 id="problem-statement">Problem statement</h1>
                 <p>You are given an array of length N, and you will be asked to answer Q queries.
