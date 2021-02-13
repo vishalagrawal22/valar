@@ -8,6 +8,7 @@ import time
 
 def index(request):
     context = {}
+    context["verdict"] = "Problem Statement/ Verdict Goes here"
     if request.method == 'POST':
         try:
             uploaded_file = request.FILES['document']
@@ -23,6 +24,10 @@ def index(request):
             os.chdir(runner_path)
             os.system("./run.sh")
             os.remove("usercode.cpp")
+            #here
+            with open("test.txt", encoding = 'utf-8') as f:
+                verdict = f.read() 
+                context["verdict"] = verdict
             os.chdir("..")
-    return render(request, "OJ/index.html")
+    return render(request, "OJ/index.html", context)
 
