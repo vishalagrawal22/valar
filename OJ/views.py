@@ -8,8 +8,6 @@ import os
 def index(request):
     context = {}
     if request.method == 'POST':
-        pdf_path = os.path.join(settings.MEDIA_ROOT, "user-codes/usercode.cpp")
-        os.remove(pdf_path)
         try:
             uploaded_file = request.FILES['document']
         except:
@@ -17,7 +15,12 @@ def index(request):
         if not uploaded_file.name.endswith(".cpp"):
             messages.error(request, 'file should be cpp')
         else:
+            pdf_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
+            runner_path = os.path.join(settings.MEDIA_ROOT, "user-runner/")
+            os.remove(pdf_path)
             fs = FileSystemStorage()
-            fs.save("user-codes/usercode.cpp", uploaded_file)
+            fs.save("user-runner/usercode.cpp", uploaded_file)
+            os.chdir(runner_path)
+            os.system("./run.sh")
     return render(request, "OJ/index.html")
 
