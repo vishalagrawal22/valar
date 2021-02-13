@@ -17,7 +17,7 @@ def index(request):
             messages.error(request, 'file should be cpp')
         else:
             code_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
-            runner_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
+            runner_path = os.path.join(settings.MEDIA_ROOT, "user-runner/")
             fs = FileSystemStorage()
             fs.save(code_path, uploaded_file)
             os.chdir(runner_path)
