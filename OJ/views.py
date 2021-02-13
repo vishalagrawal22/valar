@@ -22,8 +22,7 @@ def index(request):
             fs.save(code_path, uploaded_file)
             os.chdir(runner_path)
             os.system("./run.sh")
-            time.sleep(1)
-            code_path = os.path.join(settings.MEDIA_ROOT, "user-runner/usercode.cpp")
-            os.remove(code_path)
+            os.remove("usercode.cpp")
+            os.chdir("..")
     return render(request, "OJ/index.html")
 

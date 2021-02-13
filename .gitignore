@@ -136,3 +136,10 @@ dmypy.json
 
 # Mac OS
 .DS_Store
+
+#runner file
+correct_output.txt
+correctcode
+testcase.txt
+user_output.txt
+usercode
