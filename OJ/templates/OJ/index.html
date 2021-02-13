@@ -13,32 +13,41 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
-            
-        <section id="form-section">
-            <form method = 'post' enctype="multipart/form-data">
-                {% csrf_token %}
-                <br>
-                <div class="form-group">
-                    <p class = "h4">UPLOAD YOUR C++ CODE</p>
+        <div class="flex-container">
+            <h1 class="display-1">Hey there! You are using OJ</h1>
+            <div id="question-verdict">
+                <h1 class="display-3">Problem Statement/ Verdict Goes here</h1>
+            </div>
+            <section id="form-section" class="container-large">
+                <form method = 'post' enctype="multipart/form-data">
+                    {% csrf_token %}
                     <br>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile02" name = "document">
-                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                    <div class="form-group">
+                        <br>
+                        <div class="custom-file ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name = "document">  
+                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-primary">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                    <br>
-                    <div>
-                        <button class="btn btn-primary">Upload</button>
-                    </div>
-                </div>
-                <script>
-                    $('#inputGroupFile02').on('change',function(){
-                        var fileName = $(this).val().replace('C:\\fakepath\\', " ");
-                        $(this).next('.custom-file-label').html(fileName);
-                    })
-                </script>
-            </form>
-        </section>
+                    <script>
+                        $('#inputGroupFile02').on('change',function(){
+                            var fileName = $(this).val().replace('C:\\fakepath\\', " ");
+                            $(this).next('.custom-file-label').html(fileName);
+                        })
+                    </script>
+                </form>
+            </section>
+        </div>
+        
        
     </body>
 </html>
