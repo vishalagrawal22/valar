@@ -8,6 +8,7 @@ import time
 
 def index(request):
     context = {}
+    context["color"] = "black"
     context["verdict"] = "Verdict will come here"
     if request.method == 'POST':
         try:
@@ -28,6 +29,14 @@ def index(request):
             with open("verdict.txt", encoding = 'utf-8') as f:
                 verdict = f.read() 
                 context["verdict"] = verdict
+                if (verdict == "Accepted")
+                {
+                    context["color"] = "green"
+                }
+                else
+                {
+                    context["color"] = "red"
+                }
             os.chdir("..")
     return render(request, "OJ/index.html", context)
 
