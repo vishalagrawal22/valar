@@ -1,153 +1,192 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Valar Morghulis Online Judge</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="{% static 'CSS/OJ/custom.css' %}">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <style>
-            .textcntr{
-            text-align: center;
-            }
-            #form-section {
-            display: flex;
-            justify-content: center;
-            }
+  <head>
+    <title>Valar Morghulis Online Judge</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'CSS/OJ/custom.css' %}"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .textcntr {
+        text-align: center;
+      }
+      #form-section {
+        display: flex;
+        justify-content: center;
+      }
 
-            form {
-            text-align: center;
-            border-radius: (5/16)rem;
-            padding-left: (20/16)rem;
-            padding-right: (20/16)rem;
-            display: inline-block;
-            width: 80vw;
-            }
+      form {
+        text-align: center;
+        border-radius: (5/16) rem;
+        padding-left: (20/16) rem;
+        padding-right: (20/16) rem;
+        display: inline-block;
+        width: 80vw;
+      }
+      li{	
+          list-style-type: none;	
+      }	
+      code{	
+          color: black;	
+      }
 
-            #question {
-            width: 80%;
-            border: 2px solid black;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            padding-left: 20px;
-            }
+      #question {
+        width: 80%;
+        border: 2px solid black;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px;
+      }
 
-            .flex-container{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-            }
+      .flex-container {
+        display: flex;
+        height: 1300px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-            #verdict_txt{
-            padding: (20/16)rem;
-            }
+      .display-5 {
+        font-size: 50px;
+      }
 
-            .green{
-            color: #32cd32;
-            }
+      .green {
+        color: #32cd32;
+      }
 
-            .red{
-            color: #dc143c;
-            }
+      .red {
+        color: #dc143c;
+      }
 
-            .black{
-            color: black;
-            }
-
-            @media(max-width:1400px){
-            .flex-container{
-                height: 170vh;
-            }
-            /* #question{
-                height: 100%;
-            } */
-            }
-            @media(max-width:1600px){
-            .flex-container{
-                height: 140vh;
-            }
-            /* #question{
-                height: 100%;
-            } */
-            }
-        </style>
-        <script src="https://kit.fontawesome.com/fe4ce24d39.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="flex-container">
-            <h1 class="display-1 textcntr">Welcome to Valar Morghulis</h1>
-            <div id="question">
-                <h1 id="problem-statement">Problem statement</h1>
-                <p>You are given an array of length N, and you will be asked to answer Q queries.
-                Each query will contain 2 values, L and R, and you have to output the sum of the elements between the Lth and Rth elements (inclusive) of the array.</p>
-                <h2 id="testcase-format-">testcase format:</h2>
-                <ul>
-                <li>first line contains an integer N, the number of elements in the array</li>
-                <li>next lines contains N integers, the elements in the array</li>
-                <li>third line contains an integer Q, the number of queries</li>
-                <li>each of the following Q lines contain 2 integers L and R, the boundaries of the query</li>
-                </ul>
-                <h2 id="constraints-">constraints:</h2>
-                <ul>
-                <li>N &lt;= 10^5</li>
-                <li>all elements individually &lt;= 10^4</li>
-                <li>Q &lt;= 10^5</li>
-                <li>L &lt;= N</li>
-                <li>R &gt;= L</li>
-                </ul>
-                <h2 id="sample-io-">sample IO:</h2>
-                <h3 id="input-">Input:</h3>
-                <p>5</p>
-                <p>1   14   2   67   100</p>
-                <p>3</p>
-                <p>2   2</p>
-                <p>2   5</p>
-                <p>1   4</p>
-                <h3 id="output-">Output:</h3>
-                <p>14
-                183
-                84</p>
+      .black {
+        color: black;
+      }
+      .flx-item{	
+          padding: 30px 0;	
+      }
+      @media(max-width: 1200px){
+          .display-2{
+            font-size: 4rem;
+          }
+          .display-5{
+              font-size: 2rem;
+          }
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/fe4ce24d39.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="flex-container">
+        <h1 class="display-2 textcntr flx-item">Welcome to Valar Morghulis</h1>	
+        <div id="question" class="flx-item">	
+          <h2 id="problem-statement">Problem statement</h2>	
+          <p>	
+            You are given an array of length N, and you will be asked to answer Q	
+            queries. Each query will contain 2 values, L and R, and you have to	
+            output the sum of the elements between the Lth and Rth elements	
+            (inclusive) of the array.	
+          </p>	
+          <h2 id="testcase-format-">Testcase format</h2>	
+          <p>	
+              First line contains an integer N, the number of elements in the	
+              array, next line contains N integers, the elements in the array, third line contains an integer Q, the number of queries and 	
+              each of the following Q lines contain 2 integers L and R, the	
+              boundaries of the query.	
+          </p>	
+          <h2 id="constraints-">Constraints</h2>	
+          <ul>	
+            <li>N &lt;= 10^5</li>	
+            <li>all elements individually &lt;= 10^4</li>	
+            <li>Q &lt;= 10^5</li>	
+            <li>L &lt;= N</li>	
+            <li>R &gt;= L</li>	
+          </ul>	
+          <h2 id="sample-io-">Sample IO</h2>	
+          <h4 id="input-">Input</h4>	
+          <code>5</code>	
+          <code>1 14 2 67 100</code>	
+          <code>3</code>	
+          <code>2 2</code>	
+          <code>2 5</code>	
+          <code>1 4</code>	
+          <h4 id="output-">Output</h4>	
+          <code>14 183 84</code>	
+        </div>	
+        <section id="form-section" class="container-large textcntr flx-item">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <br />
+          <div class="form-group">
+            <br />
+            <div class="custom-file">
+              <div class="container">
+                <div class="row">
+                  <div class="col-10">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="inputGroupFile02"
+                      name="document"
+                    />
+                    <label class="custom-file-label" for="inputGroupFile02"
+                      >Choose file</label
+                    >
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-primary">Upload</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <section id="form-section" class="container-large textcntr">
-                <form method = 'post' enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <br>
-                    <div class="form-group">
-                        <br>
-                        <div class="custom-file ">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name = "document">  
-                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn btn-primary">Upload</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        $('#inputGroupFile02').on('change',function(){
-                            var fileName = $(this).val().replace('C:\\fakepath\\', " ");
-                            $(this).next('.custom-file-label').html(fileName);
-                        })
-                    </script>
-                </form>
-            </section>
-            <div id="verdict textcntr ">
-                <h1 id = "verdict_txt" class="display-5 {{ color }}"> {{ verdict }} </h1>
-            </div>
-        </div>
-        
-       
-    </body>
+          </div>
+          <script>
+            $("#inputGroupFile02").on("change", function () {
+              var fileName = $(this).val().replace("C:\\fakepath\\", " ");
+              $(this).next(".custom-file-label").html(fileName);
+            });
+          </script>
+        </form>
+      </section>
+      <div id="verdict" class="flx-item textcntr">
+        <h1 id="verdict_txt" class="display-5 {{ color }}">{{ verdict }}</h1>
+      </div>
+    </div>
+  </body>
 </html>
